@@ -1,0 +1,839 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.33 (git sha1 2584903a060)
+
+
+-- Executing script file `04_IMPLEMENTATION/scripts/run_yosys.ys' --
+
+1. Executing Verilog-2005 frontend: 04_IMPLEMENTATION/rtl/f08_stepper_ctrl.sv
+Parsing SystemVerilog input from `04_IMPLEMENTATION/rtl/f08_stepper_ctrl.sv' to AST representation.
+Generating RTLIL representation for module `\f08_stepper_ctrl'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Analyzing design hierarchy..
+Top module:  \f08_stepper_ctrl
+
+2.2. Analyzing design hierarchy..
+Top module:  \f08_stepper_ctrl
+Removed 0 unused modules.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed 2 dead cases from process $proc$04_IMPLEMENTATION/rtl/f08_stepper_ctrl.sv:0$23 in module f08_stepper_ctrl.
+Marked 4 switch rules as full_case in process $proc$04_IMPLEMENTATION/rtl/f08_stepper_ctrl.sv:0$23 in module f08_stepper_ctrl.
+Marked 3 switch rules as full_case in process $proc$04_IMPLEMENTATION/rtl/f08_stepper_ctrl.sv:73$19 in module f08_stepper_ctrl.
+Marked 3 switch rules as full_case in process $proc$04_IMPLEMENTATION/rtl/f08_stepper_ctrl.sv:0$15 in module f08_stepper_ctrl.
+Marked 3 switch rules as full_case in process $proc$04_IMPLEMENTATION/rtl/f08_stepper_ctrl.sv:0$2 in module f08_stepper_ctrl.
+Removed a total of 2 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 1 redundant assignment.
+Promoted 7 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 1 switch.
+<suppressed ~12 debug messages>
+
+3.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\f08_stepper_ctrl.$proc$04_IMPLEMENTATION/rtl/f08_stepper_ctrl.sv:0$23'.
+     1/8: $4\phase_decode$func$04_IMPLEMENTATION/rtl/f08_stepper_ctrl.sv:93$1.$result[3:0]$37
+     2/8: $3\phase_decode$func$04_IMPLEMENTATION/rtl/f08_stepper_ctrl.sv:93$1.$result[3:0]$36
+     3/8: $2\phase_decode$func$04_IMPLEMENTATION/rtl/f08_stepper_ctrl.sv:93$1.$result[3:0]$35
+     4/8: $1\coil[3:0]
+     5/8: $1\phase_decode$func$04_IMPLEMENTATION/rtl/f08_stepper_ctrl.sv:93$1.s_trunc[1:0]$34
+     6/8: $1\phase_decode$func$04_IMPLEMENTATION/rtl/f08_stepper_ctrl.sv:93$1.hs[0:0]$33
+     7/8: $1\phase_decode$func$04_IMPLEMENTATION/rtl/f08_stepper_ctrl.sv:93$1.s[2:0]$32
+     8/8: $1\phase_decode$func$04_IMPLEMENTATION/rtl/f08_stepper_ctrl.sv:93$1.$result[3:0]$31
+Creating decoders for process `\f08_stepper_ctrl.$proc$04_IMPLEMENTATION/rtl/f08_stepper_ctrl.sv:73$19'.
+     1/2: $0\div_count[7:0]
+     2/2: $0\state[2:0]
+Creating decoders for process `\f08_stepper_ctrl.$proc$04_IMPLEMENTATION/rtl/f08_stepper_ctrl.sv:0$15'.
+     1/3: $3\step_tick[0:0]
+     2/3: $2\step_tick[0:0]
+     3/3: $1\step_tick[0:0]
+Creating decoders for process `\f08_stepper_ctrl.$proc$04_IMPLEMENTATION/rtl/f08_stepper_ctrl.sv:0$2'.
+     1/3: $3\state_next[2:0]
+     2/3: $2\state_next[2:0]
+     3/3: $1\state_next[2:0]
+
+3.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\f08_stepper_ctrl.\coil' from process `\f08_stepper_ctrl.$proc$04_IMPLEMENTATION/rtl/f08_stepper_ctrl.sv:0$23'.
+No latch inferred for signal `\f08_stepper_ctrl.\phase_decode$func$04_IMPLEMENTATION/rtl/f08_stepper_ctrl.sv:93$1.$result' from process `\f08_stepper_ctrl.$proc$04_IMPLEMENTATION/rtl/f08_stepper_ctrl.sv:0$23'.
+No latch inferred for signal `\f08_stepper_ctrl.\phase_decode$func$04_IMPLEMENTATION/rtl/f08_stepper_ctrl.sv:93$1.s' from process `\f08_stepper_ctrl.$proc$04_IMPLEMENTATION/rtl/f08_stepper_ctrl.sv:0$23'.
+No latch inferred for signal `\f08_stepper_ctrl.\phase_decode$func$04_IMPLEMENTATION/rtl/f08_stepper_ctrl.sv:93$1.hs' from process `\f08_stepper_ctrl.$proc$04_IMPLEMENTATION/rtl/f08_stepper_ctrl.sv:0$23'.
+No latch inferred for signal `\f08_stepper_ctrl.\phase_decode$func$04_IMPLEMENTATION/rtl/f08_stepper_ctrl.sv:93$1.s_trunc' from process `\f08_stepper_ctrl.$proc$04_IMPLEMENTATION/rtl/f08_stepper_ctrl.sv:0$23'.
+No latch inferred for signal `\f08_stepper_ctrl.\step_tick' from process `\f08_stepper_ctrl.$proc$04_IMPLEMENTATION/rtl/f08_stepper_ctrl.sv:0$15'.
+No latch inferred for signal `\f08_stepper_ctrl.\state_next' from process `\f08_stepper_ctrl.$proc$04_IMPLEMENTATION/rtl/f08_stepper_ctrl.sv:0$2'.
+
+3.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\f08_stepper_ctrl.\state' using process `\f08_stepper_ctrl.$proc$04_IMPLEMENTATION/rtl/f08_stepper_ctrl.sv:73$19'.
+  created $dff cell `$procdff$133' with positive edge clock.
+Creating register for signal `\f08_stepper_ctrl.\div_count' using process `\f08_stepper_ctrl.$proc$04_IMPLEMENTATION/rtl/f08_stepper_ctrl.sv:73$19'.
+  created $dff cell `$procdff$134' with positive edge clock.
+
+3.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 4 empty switches in `\f08_stepper_ctrl.$proc$04_IMPLEMENTATION/rtl/f08_stepper_ctrl.sv:0$23'.
+Removing empty process `f08_stepper_ctrl.$proc$04_IMPLEMENTATION/rtl/f08_stepper_ctrl.sv:0$23'.
+Found and cleaned up 3 empty switches in `\f08_stepper_ctrl.$proc$04_IMPLEMENTATION/rtl/f08_stepper_ctrl.sv:73$19'.
+Removing empty process `f08_stepper_ctrl.$proc$04_IMPLEMENTATION/rtl/f08_stepper_ctrl.sv:73$19'.
+Found and cleaned up 3 empty switches in `\f08_stepper_ctrl.$proc$04_IMPLEMENTATION/rtl/f08_stepper_ctrl.sv:0$15'.
+Removing empty process `f08_stepper_ctrl.$proc$04_IMPLEMENTATION/rtl/f08_stepper_ctrl.sv:0$15'.
+Found and cleaned up 3 empty switches in `\f08_stepper_ctrl.$proc$04_IMPLEMENTATION/rtl/f08_stepper_ctrl.sv:0$2'.
+Removing empty process `f08_stepper_ctrl.$proc$04_IMPLEMENTATION/rtl/f08_stepper_ctrl.sv:0$2'.
+Cleaned up 13 empty switches.
+
+3.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module f08_stepper_ctrl.
+<suppressed ~8 debug messages>
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module f08_stepper_ctrl.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\f08_stepper_ctrl'.
+<suppressed ~12 debug messages>
+Removed a total of 4 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \f08_stepper_ctrl..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 1/2 on $mux $procmux$122.
+    dead port 2/2 on $mux $procmux$113.
+    dead port 2/2 on $mux $procmux$107.
+    dead port 1/2 on $mux $procmux$105.
+    dead port 1/2 on $mux $procmux$80.
+    dead port 2/2 on $mux $procmux$80.
+    dead port 1/2 on $mux $procmux$77.
+    dead port 2/2 on $mux $procmux$77.
+    dead port 1/2 on $mux $procmux$74.
+    dead port 2/2 on $mux $procmux$74.
+    dead port 1/2 on $mux $procmux$71.
+    dead port 2/2 on $mux $procmux$71.
+    dead port 1/2 on $mux $procmux$65.
+    dead port 1/2 on $mux $procmux$59.
+    dead port 2/2 on $mux $procmux$56.
+    dead port 1/2 on $mux $procmux$52.
+    dead port 1/2 on $mux $procmux$49.
+    dead port 2/2 on $mux $procmux$128.
+Removed 18 multiplexer ports.
+<suppressed ~5 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \f08_stepper_ctrl.
+Performed a total of 0 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\f08_stepper_ctrl'.
+Removed a total of 0 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $procdff$133 ($dff) from module f08_stepper_ctrl (D = $procmux$95_Y, Q = \state, rval = 3'000).
+Adding EN signal on $auto$ff.cc:266:slice$135 ($sdff) from module f08_stepper_ctrl (D = \state_next, Q = \state).
+Adding SRST signal on $procdff$134 ($dff) from module f08_stepper_ctrl (D = $add$04_IMPLEMENTATION/rtl/f08_stepper_ctrl.sv:84$22_Y, Q = \div_count, rval = 8'00000000).
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \f08_stepper_ctrl..
+Removed 8 unused cells and 81 unused wires.
+<suppressed ~9 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module f08_stepper_ctrl.
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \f08_stepper_ctrl..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~3 debug messages>
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \f08_stepper_ctrl.
+Performed a total of 0 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\f08_stepper_ctrl'.
+Removed a total of 0 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \f08_stepper_ctrl..
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module f08_stepper_ctrl.
+
+4.16. Finished OPT passes. (There is nothing left to do.)
+
+5. Executing CHECK pass (checking for obvious problems).
+Checking module f08_stepper_ctrl...
+Found and reported 0 problems.
+
+6. Executing SYNTH pass.
+
+6.1. Executing HIERARCHY pass (managing design hierarchy).
+
+6.1.1. Analyzing design hierarchy..
+Top module:  \f08_stepper_ctrl
+
+6.1.2. Analyzing design hierarchy..
+Top module:  \f08_stepper_ctrl
+Removed 0 unused modules.
+
+6.2. Executing PROC pass (convert processes to netlists).
+
+6.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+6.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+6.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 0 assignments to connections.
+
+6.2.4. Executing PROC_INIT pass (extract init attributes).
+
+6.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+6.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+6.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+
+6.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+6.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+6.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+6.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+6.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module f08_stepper_ctrl.
+
+6.3. Executing OPT_EXPR pass (perform const folding).
+Optimizing module f08_stepper_ctrl.
+
+6.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \f08_stepper_ctrl..
+
+6.5. Executing CHECK pass (checking for obvious problems).
+Checking module f08_stepper_ctrl...
+Found and reported 0 problems.
+
+6.6. Executing OPT pass (performing simple optimizations).
+
+6.6.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module f08_stepper_ctrl.
+
+6.6.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\f08_stepper_ctrl'.
+Removed a total of 0 cells.
+
+6.6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \f08_stepper_ctrl..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~3 debug messages>
+
+6.6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \f08_stepper_ctrl.
+Performed a total of 0 changes.
+
+6.6.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\f08_stepper_ctrl'.
+Removed a total of 0 cells.
+
+6.6.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.6.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \f08_stepper_ctrl..
+
+6.6.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module f08_stepper_ctrl.
+
+6.6.9. Finished OPT passes. (There is nothing left to do.)
+
+6.7. Executing FSM pass (extract and optimize FSM).
+
+6.7.1. Executing FSM_DETECT pass (finding FSMs in design).
+
+6.7.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+
+6.7.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+6.7.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \f08_stepper_ctrl..
+
+6.7.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+6.7.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+
+6.7.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+
+6.7.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+
+6.8. Executing OPT pass (performing simple optimizations).
+
+6.8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module f08_stepper_ctrl.
+
+6.8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\f08_stepper_ctrl'.
+Removed a total of 0 cells.
+
+6.8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \f08_stepper_ctrl..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~3 debug messages>
+
+6.8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \f08_stepper_ctrl.
+Performed a total of 0 changes.
+
+6.8.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\f08_stepper_ctrl'.
+Removed a total of 0 cells.
+
+6.8.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.8.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \f08_stepper_ctrl..
+
+6.8.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module f08_stepper_ctrl.
+
+6.8.9. Finished OPT passes. (There is nothing left to do.)
+
+6.9. Executing WREDUCE pass (reducing word size of cells).
+Removed top 29 address bits (of 32) from memory init port f08_stepper_ctrl.$auto$mem.cc:319:emit$42 ($auto$proc_rom.cc:150:do_switch$40).
+Removed top 2 bits (of 3) from port B of cell f08_stepper_ctrl.$add$04_IMPLEMENTATION/rtl/f08_stepper_ctrl.sv:57$10 ($add).
+Removed top 2 bits (of 3) from port B of cell f08_stepper_ctrl.$sub$04_IMPLEMENTATION/rtl/f08_stepper_ctrl.sv:59$13 ($sub).
+Removed top 1 bits (of 3) from port B of cell f08_stepper_ctrl.$gt$04_IMPLEMENTATION/rtl/f08_stepper_ctrl.sv:90$29 ($gt).
+Removed top 1 bits (of 2) from port B of cell f08_stepper_ctrl.$procmux$46_CMP0 ($eq).
+
+6.10. Executing PEEPOPT pass (run peephole optimizers).
+
+6.11. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \f08_stepper_ctrl..
+
+6.12. Executing ALUMACC pass (create $alu and $macc cells).
+Extracting $alu and $macc cells in module f08_stepper_ctrl:
+  creating $macc model for $add$04_IMPLEMENTATION/rtl/f08_stepper_ctrl.sv:57$10 ($add).
+  creating $macc model for $add$04_IMPLEMENTATION/rtl/f08_stepper_ctrl.sv:84$22 ($add).
+  creating $macc model for $sub$04_IMPLEMENTATION/rtl/f08_stepper_ctrl.sv:59$13 ($sub).
+  creating $macc model for $sub$04_IMPLEMENTATION/rtl/f08_stepper_ctrl.sv:68$17 ($sub).
+  creating $alu model for $macc $sub$04_IMPLEMENTATION/rtl/f08_stepper_ctrl.sv:68$17.
+  creating $alu model for $macc $sub$04_IMPLEMENTATION/rtl/f08_stepper_ctrl.sv:59$13.
+  creating $alu model for $macc $add$04_IMPLEMENTATION/rtl/f08_stepper_ctrl.sv:84$22.
+  creating $alu model for $macc $add$04_IMPLEMENTATION/rtl/f08_stepper_ctrl.sv:57$10.
+  creating $alu model for $ge$04_IMPLEMENTATION/rtl/f08_stepper_ctrl.sv:68$18 ($ge): new $alu
+  creating $alu model for $gt$04_IMPLEMENTATION/rtl/f08_stepper_ctrl.sv:90$29 ($gt): new $alu
+  creating $alu cell for $gt$04_IMPLEMENTATION/rtl/f08_stepper_ctrl.sv:90$29: $auto$alumacc.cc:485:replace_alu$148
+  creating $alu cell for $ge$04_IMPLEMENTATION/rtl/f08_stepper_ctrl.sv:68$18: $auto$alumacc.cc:485:replace_alu$153
+  creating $alu cell for $add$04_IMPLEMENTATION/rtl/f08_stepper_ctrl.sv:57$10: $auto$alumacc.cc:485:replace_alu$162
+  creating $alu cell for $add$04_IMPLEMENTATION/rtl/f08_stepper_ctrl.sv:84$22: $auto$alumacc.cc:485:replace_alu$165
+  creating $alu cell for $sub$04_IMPLEMENTATION/rtl/f08_stepper_ctrl.sv:59$13: $auto$alumacc.cc:485:replace_alu$168
+  creating $alu cell for $sub$04_IMPLEMENTATION/rtl/f08_stepper_ctrl.sv:68$17: $auto$alumacc.cc:485:replace_alu$171
+  created 6 $alu and 0 $macc cells.
+
+6.13. Executing SHARE pass (SAT-based resource sharing).
+
+6.14. Executing OPT pass (performing simple optimizations).
+
+6.14.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module f08_stepper_ctrl.
+
+6.14.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\f08_stepper_ctrl'.
+Removed a total of 0 cells.
+
+6.14.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \f08_stepper_ctrl..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~3 debug messages>
+
+6.14.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \f08_stepper_ctrl.
+Performed a total of 0 changes.
+
+6.14.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\f08_stepper_ctrl'.
+Removed a total of 0 cells.
+
+6.14.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.14.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \f08_stepper_ctrl..
+Removed 0 unused cells and 2 unused wires.
+<suppressed ~1 debug messages>
+
+6.14.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module f08_stepper_ctrl.
+
+6.14.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+6.14.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \f08_stepper_ctrl..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~3 debug messages>
+
+6.14.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \f08_stepper_ctrl.
+Performed a total of 0 changes.
+
+6.14.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\f08_stepper_ctrl'.
+Removed a total of 0 cells.
+
+6.14.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.14.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \f08_stepper_ctrl..
+
+6.14.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module f08_stepper_ctrl.
+
+6.14.16. Finished OPT passes. (There is nothing left to do.)
+
+6.15. Executing MEMORY pass.
+
+6.15.1. Executing OPT_MEM pass (optimize memories).
+Performed a total of 0 transformations.
+
+6.15.2. Executing OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+Performed a total of 0 transformations.
+
+6.15.3. Executing OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+
+6.15.4. Executing MEMORY_BMUX2ROM pass (converting muxes to ROMs).
+
+6.15.5. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+Checking read port `$auto$proc_rom.cc:150:do_switch$40'[0] in module `\f08_stepper_ctrl': no output FF found.
+Checking read port address `$auto$proc_rom.cc:150:do_switch$40'[0] in module `\f08_stepper_ctrl': merged address FF to cell.
+
+6.15.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \f08_stepper_ctrl..
+
+6.15.7. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+
+6.15.8. Executing OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+Performed a total of 0 transformations.
+
+6.15.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \f08_stepper_ctrl..
+
+6.15.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+6.16. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \f08_stepper_ctrl..
+
+6.17. Executing OPT pass (performing simple optimizations).
+
+6.17.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module f08_stepper_ctrl.
+<suppressed ~5 debug messages>
+
+6.17.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\f08_stepper_ctrl'.
+Removed a total of 0 cells.
+
+6.17.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.17.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \f08_stepper_ctrl..
+Removed 2 unused cells and 3 unused wires.
+<suppressed ~3 debug messages>
+
+6.17.5. Finished fast OPT passes.
+
+6.18. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+Mapping memory $auto$proc_rom.cc:150:do_switch$40 in module \f08_stepper_ctrl:
+  created 8 $dff cells and 0 static cells of width 4.
+Extracted data FF from read port 0 of f08_stepper_ctrl.$auto$proc_rom.cc:150:do_switch$40: $$auto$proc_rom.cc:150:do_switch$40$rdreg[0]
+  read interface: 1 $dff and 7 $mux cells.
+  write interface: 0 write mux blocks.
+
+6.19. Executing OPT pass (performing simple optimizations).
+
+6.19.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module f08_stepper_ctrl.
+
+6.19.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\f08_stepper_ctrl'.
+Removed a total of 0 cells.
+
+6.19.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \f08_stepper_ctrl..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~4 debug messages>
+
+6.19.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \f08_stepper_ctrl.
+    Consolidated identical input bits for $mux cell $memory$auto$proc_rom.cc:150:do_switch$40$rdmux[0][2][2]$199:
+      Old ports: A=4'0110, B=4'0100, Y=$memory$auto$proc_rom.cc:150:do_switch$40$rdmux[0][1][1]$a$191
+      New ports: A=1'1, B=1'0, Y=$memory$auto$proc_rom.cc:150:do_switch$40$rdmux[0][1][1]$a$191 [1]
+      New connections: { $memory$auto$proc_rom.cc:150:do_switch$40$rdmux[0][1][1]$a$191 [3:2] $memory$auto$proc_rom.cc:150:do_switch$40$rdmux[0][1][1]$a$191 [0] } = 3'010
+    Consolidated identical input bits for $mux cell $memory$auto$proc_rom.cc:150:do_switch$40$rdmux[0][2][1]$196:
+      Old ports: A=4'0011, B=4'0010, Y=$memory$auto$proc_rom.cc:150:do_switch$40$rdmux[0][1][0]$b$189
+      New ports: A=1'1, B=1'0, Y=$memory$auto$proc_rom.cc:150:do_switch$40$rdmux[0][1][0]$b$189 [0]
+      New connections: $memory$auto$proc_rom.cc:150:do_switch$40$rdmux[0][1][0]$b$189 [3:1] = 3'001
+    Consolidated identical input bits for $mux cell $memory$auto$proc_rom.cc:150:do_switch$40$rdmux[0][2][0]$193:
+      Old ports: A=4'1001, B=4'0001, Y=$memory$auto$proc_rom.cc:150:do_switch$40$rdmux[0][1][0]$a$188
+      New ports: A=1'1, B=1'0, Y=$memory$auto$proc_rom.cc:150:do_switch$40$rdmux[0][1][0]$a$188 [3]
+      New connections: $memory$auto$proc_rom.cc:150:do_switch$40$rdmux[0][1][0]$a$188 [2:0] = 3'001
+    Consolidated identical input bits for $mux cell $memory$auto$proc_rom.cc:150:do_switch$40$rdmux[0][2][3]$202:
+      Old ports: A=4'1100, B=4'1000, Y=$memory$auto$proc_rom.cc:150:do_switch$40$rdmux[0][1][1]$b$192
+      New ports: A=1'1, B=1'0, Y=$memory$auto$proc_rom.cc:150:do_switch$40$rdmux[0][1][1]$b$192 [2]
+      New connections: { $memory$auto$proc_rom.cc:150:do_switch$40$rdmux[0][1][1]$b$192 [3] $memory$auto$proc_rom.cc:150:do_switch$40$rdmux[0][1][1]$b$192 [1:0] } = 3'100
+  Optimizing cells in module \f08_stepper_ctrl.
+    Consolidated identical input bits for $mux cell $memory$auto$proc_rom.cc:150:do_switch$40$rdmux[0][1][1]$190:
+      Old ports: A=$memory$auto$proc_rom.cc:150:do_switch$40$rdmux[0][1][1]$a$191, B=$memory$auto$proc_rom.cc:150:do_switch$40$rdmux[0][1][1]$b$192, Y=$memory$auto$proc_rom.cc:150:do_switch$40$rdmux[0][0][0]$b$186
+      New ports: A={ 2'01 $memory$auto$proc_rom.cc:150:do_switch$40$rdmux[0][1][1]$a$191 [1] }, B={ 1'1 $memory$auto$proc_rom.cc:150:do_switch$40$rdmux[0][1][1]$b$192 [2] 1'0 }, Y=$memory$auto$proc_rom.cc:150:do_switch$40$rdmux[0][0][0]$b$186 [3:1]
+      New connections: $memory$auto$proc_rom.cc:150:do_switch$40$rdmux[0][0][0]$b$186 [0] = 1'0
+    Consolidated identical input bits for $mux cell $memory$auto$proc_rom.cc:150:do_switch$40$rdmux[0][1][0]$187:
+      Old ports: A=$memory$auto$proc_rom.cc:150:do_switch$40$rdmux[0][1][0]$a$188, B=$memory$auto$proc_rom.cc:150:do_switch$40$rdmux[0][1][0]$b$189, Y=$memory$auto$proc_rom.cc:150:do_switch$40$rdmux[0][0][0]$a$185
+      New ports: A={ $memory$auto$proc_rom.cc:150:do_switch$40$rdmux[0][1][0]$a$188 [3] 2'01 }, B={ 2'01 $memory$auto$proc_rom.cc:150:do_switch$40$rdmux[0][1][0]$b$189 [0] }, Y={ $memory$auto$proc_rom.cc:150:do_switch$40$rdmux[0][0][0]$a$185 [3] $memory$auto$proc_rom.cc:150:do_switch$40$rdmux[0][0][0]$a$185 [1:0] }
+      New connections: $memory$auto$proc_rom.cc:150:do_switch$40$rdmux[0][0][0]$a$185 [2] = 1'0
+  Optimizing cells in module \f08_stepper_ctrl.
+Performed a total of 6 changes.
+
+6.19.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\f08_stepper_ctrl'.
+<suppressed ~9 debug messages>
+Removed a total of 3 cells.
+
+6.19.6. Executing OPT_SHARE pass.
+
+6.19.7. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.19.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \f08_stepper_ctrl..
+Removed 0 unused cells and 11 unused wires.
+<suppressed ~1 debug messages>
+
+6.19.9. Executing OPT_EXPR pass (perform const folding).
+Optimizing module f08_stepper_ctrl.
+<suppressed ~1 debug messages>
+
+6.19.10. Rerunning OPT passes. (Maybe there is more to do..)
+
+6.19.11. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \f08_stepper_ctrl..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~4 debug messages>
+
+6.19.12. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \f08_stepper_ctrl.
+Performed a total of 0 changes.
+
+6.19.13. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\f08_stepper_ctrl'.
+Removed a total of 0 cells.
+
+6.19.14. Executing OPT_SHARE pass.
+
+6.19.15. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $$auto$proc_rom.cc:150:do_switch$40$rdreg[0] ($dff) from module f08_stepper_ctrl (D = $memory$auto$proc_rom.cc:150:do_switch$40$rdmux[0][0][0]$b$186 [2], Q = $3\phase_decode$func$04_IMPLEMENTATION/rtl/f08_stepper_ctrl.sv:93$1.$result[3:0]$36 [2], rval = 1'0).
+Adding SRST signal on $$auto$proc_rom.cc:150:do_switch$40$rdreg[0] ($dff) from module f08_stepper_ctrl (D = $memory$auto$proc_rom.cc:150:do_switch$40$rdmux[0][0][0]$a$185 [0], Q = $3\phase_decode$func$04_IMPLEMENTATION/rtl/f08_stepper_ctrl.sv:93$1.$result[3:0]$36 [0], rval = 1'0).
+
+6.19.16. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \f08_stepper_ctrl..
+
+6.19.17. Executing OPT_EXPR pass (perform const folding).
+Optimizing module f08_stepper_ctrl.
+
+6.19.18. Rerunning OPT passes. (Maybe there is more to do..)
+
+6.19.19. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \f08_stepper_ctrl..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~6 debug messages>
+
+6.19.20. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \f08_stepper_ctrl.
+Performed a total of 0 changes.
+
+6.19.21. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\f08_stepper_ctrl'.
+Removed a total of 0 cells.
+
+6.19.22. Executing OPT_SHARE pass.
+
+6.19.23. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.19.24. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \f08_stepper_ctrl..
+
+6.19.25. Executing OPT_EXPR pass (perform const folding).
+Optimizing module f08_stepper_ctrl.
+
+6.19.26. Finished OPT passes. (There is nothing left to do.)
+
+6.20. Executing TECHMAP pass (map to technology primitives).
+
+6.20.1. Executing Verilog-2005 frontend: /usr/bin/../share/yosys/techmap.v
+Parsing Verilog input from `/usr/bin/../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `\$__div_mod_u'.
+Generating RTLIL representation for module `\$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `\$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_pmux'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Successfully finished Verilog frontend.
+
+6.20.2. Continuing TECHMAP pass.
+Using extmapper simplemap for cells of type $eq.
+Using extmapper simplemap for cells of type $mux.
+Using extmapper simplemap for cells of type $logic_not.
+Using template $paramod$c3cd1564c35d873179656addd6052d7ea8b6d991\_90_alu for cells of type $alu.
+Using template $paramod$403a3c2fa431a154c52a6a5429d7a6260b5d144f\_90_alu for cells of type $alu.
+Using template $paramod$3ef7d3dd227da7627a99c5e5a6a4deb817573e39\_90_alu for cells of type $alu.
+Using template $paramod$b8c0a997bce700f23568a5ada79cc6781d1f5ca0\_90_alu for cells of type $alu.
+Using template $paramod$a1bc51c02ce12ac21eb18988e83292af48ed7d72\_90_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $logic_and.
+Using template $paramod$c2e415ef15bc3ccd2723772353a6b450d3d76206\_90_pmux for cells of type $pmux.
+Using extmapper simplemap for cells of type $reduce_and.
+Using extmapper simplemap for cells of type $not.
+Using extmapper simplemap for cells of type $sdff.
+Using extmapper simplemap for cells of type $dff.
+Using extmapper simplemap for cells of type $reduce_or.
+Using extmapper simplemap for cells of type $or.
+Using extmapper simplemap for cells of type $and.
+Using template $paramod$adbaf76fa5a3091a329503792521395f8ff4d1a4\_90_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $sdffe.
+Using extmapper simplemap for cells of type $xor.
+Using template $paramod\_90_lcu\WIDTH=32'00000000000000000000000000001000 for cells of type $lcu.
+Using extmapper simplemap for cells of type $pos.
+Using template $paramod\_90_lcu\WIDTH=32'00000000000000000000000000000011 for cells of type $lcu.
+Using template $paramod\_90_lcu\WIDTH=32'00000000000000000000000000000001 for cells of type $lcu.
+No more expansions possible.
+<suppressed ~729 debug messages>
+
+6.21. Executing OPT pass (performing simple optimizations).
+
+6.21.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module f08_stepper_ctrl.
+<suppressed ~171 debug messages>
+
+6.21.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\f08_stepper_ctrl'.
+<suppressed ~90 debug messages>
+Removed a total of 30 cells.
+
+6.21.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.21.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \f08_stepper_ctrl..
+Removed 35 unused cells and 262 unused wires.
+<suppressed ~36 debug messages>
+
+6.21.5. Finished fast OPT passes.
+
+6.22. Executing ABC pass (technology mapping using ABC).
+
+6.22.1. Extracting gate netlist of module `\f08_stepper_ctrl' to `<abc-temp-dir>/input.blif'..
+Extracted 183 gates and 212 wires to a netlist network with 27 inputs and 21 outputs.
+
+6.22.1.1. Executing ABC.
+Running ABC command: "<yosys-exe-dir>/yosys-abc" -s -f <abc-temp-dir>/abc.script 2>&1
+ABC: ABC command line: "source <abc-temp-dir>/abc.script".
+ABC:
+ABC: + read_blif <abc-temp-dir>/input.blif
+ABC: + read_library <abc-temp-dir>/stdcells.genlib
+ABC: Entered genlib library with 13 gates from file "<abc-temp-dir>/stdcells.genlib".
+ABC: + strash
+ABC: + dretime
+ABC: + map
+ABC: + write_blif <abc-temp-dir>/output.blif
+
+6.22.1.2. Re-integrating ABC results.
+ABC RESULTS:              XNOR cells:        1
+ABC RESULTS:             ORNOT cells:        4
+ABC RESULTS:                OR cells:       21
+ABC RESULTS:               NOR cells:       15
+ABC RESULTS:               MUX cells:       18
+ABC RESULTS:               NOT cells:       16
+ABC RESULTS:              NAND cells:        7
+ABC RESULTS:            ANDNOT cells:       41
+ABC RESULTS:               AND cells:       12
+ABC RESULTS:               XOR cells:       23
+ABC RESULTS:        internal signals:      164
+ABC RESULTS:           input signals:       27
+ABC RESULTS:          output signals:       21
+Removing temp directory.
+
+6.23. Executing OPT pass (performing simple optimizations).
+
+6.23.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module f08_stepper_ctrl.
+<suppressed ~9 debug messages>
+
+6.23.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\f08_stepper_ctrl'.
+<suppressed ~9 debug messages>
+Removed a total of 3 cells.
+
+6.23.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.23.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \f08_stepper_ctrl..
+Removed 2 unused cells and 129 unused wires.
+<suppressed ~4 debug messages>
+
+6.23.5. Finished fast OPT passes.
+
+6.24. Executing HIERARCHY pass (managing design hierarchy).
+
+6.24.1. Analyzing design hierarchy..
+Top module:  \f08_stepper_ctrl
+
+6.24.2. Analyzing design hierarchy..
+Top module:  \f08_stepper_ctrl
+Removed 0 unused modules.
+
+6.25. Printing statistics.
+
+=== f08_stepper_ctrl ===
+
+   Number of wires:                155
+   Number of wire bits:            202
+   Number of public wires:          15
+   Number of public wire bits:      42
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                168
+     $_ANDNOT_                      41
+     $_AND_                         12
+     $_DFF_P_                        2
+     $_MUX_                         18
+     $_NAND_                         7
+     $_NOR_                         13
+     $_NOT_                         14
+     $_ORNOT_                        4
+     $_OR_                          20
+     $_SDFFE_PN0P_                   3
+     $_SDFF_PN0_                     1
+     $_SDFF_PP0_                     9
+     $_XNOR_                         1
+     $_XOR_                         23
+
+6.26. Executing CHECK pass (checking for obvious problems).
+Checking module f08_stepper_ctrl...
+Found and reported 0 problems.
+
+7. Printing statistics.
+
+=== f08_stepper_ctrl ===
+
+   Number of wires:                155
+   Number of wire bits:            202
+   Number of public wires:          15
+   Number of public wire bits:      42
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                168
+     $_ANDNOT_                      41
+     $_AND_                         12
+     $_DFF_P_                        2
+     $_MUX_                         18
+     $_NAND_                         7
+     $_NOR_                         13
+     $_NOT_                         14
+     $_ORNOT_                        4
+     $_OR_                          20
+     $_SDFFE_PN0P_                   3
+     $_SDFF_PN0_                     1
+     $_SDFF_PP0_                     9
+     $_XNOR_                         1
+     $_XOR_                         23
+
+8. Executing Verilog backend.
+
+8.1. Executing BMUXMAP pass.
+
+8.2. Executing DEMUXMAP pass.
+Dumping module `\f08_stepper_ctrl'.
+
+End of script. Logfile hash: 359eedce34, CPU: user 0.26s system 0.02s, MEM: 15.64 MB peak
+Yosys 0.33 (git sha1 2584903a060)
+Time spent: 27% 1x abc (0 sec), 19% 26x opt_expr (0 sec), ...

@@ -1,0 +1,8 @@
+read_verilog -sv 04_IMPLEMENTATION/rtl/f08_stepper_ctrl.sv
+hierarchy -check -top f08_stepper_ctrl
+proc
+opt
+check
+synth -top f08_stepper_ctrl
+stat
+write_verilog -noattr 04_IMPLEMENTATION/netlist/f08_stepper_ctrl_synth.v

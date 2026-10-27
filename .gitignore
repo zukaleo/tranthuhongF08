@@ -1,0 +1,15 @@
+# Python virtual environment
+.venv-librelane/
+
+# Temporary simulation files
+05_VERIFICATION/logs/*.vvp
+
+# LibreLane temporary files and large run artifacts
+04_IMPLEMENTATION/librelane_design/runs/
+04_IMPLEMENTATION/librelane_design/tmp/
+
+# LibreLane execution log
+04_IMPLEMENTATION/librelane_design/run.log
+
+# Generated simulation executables
+*.vvp
