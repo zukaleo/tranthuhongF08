@@ -1,0 +1,10 @@
+{
+    "DESIGN_NAME": "f08_stepper_ctrl",
+    "VERILOG_FILES": ["dir::rtl/f08_stepper_ctrl.sv"],
+    "CLOCK_PORT": "clk",
+    "CLOCK_PERIOD": 10.0,
+    "FP_CORE_UTIL": 40,
+    "PL_TARGET_DENSITY_PCT": 45,
+    "FP_SIZING": "absolute",
+    "DIE_AREA": "0 0 150 150"
+}
