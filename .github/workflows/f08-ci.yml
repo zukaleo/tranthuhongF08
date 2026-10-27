@@ -1,0 +1,36 @@
+name: F08 RTL CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  rtl-verification:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install verification tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y iverilog yosys
+
+      - name: Compile RTL and instructor testbench
+        run: |
+          iverilog -g2012 -gassertions -s f08_tb \
+            -o /tmp/f08_tb.vvp \
+            04_IMPLEMENTATION/rtl/f08_stepper_ctrl.sv \
+            05_VERIFICATION/testbench/f08_tb.sv
+
+      - name: Run RTL testbench
+        run: |
+          vvp /tmp/f08_tb.vvp
+
+      - name: Run Yosys synthesis
+        run: |
+          yosys -s 04_IMPLEMENTATION/scripts/run_yosys.ys
