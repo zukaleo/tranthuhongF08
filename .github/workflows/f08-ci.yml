@@ -66,10 +66,10 @@ jobs:
       - name: Run LibreLane physical design
         run: |
           python -m librelane \
+            --docker-no-tty \
             --dockerized \
             --run-tag "ci-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}" \
             04_IMPLEMENTATION/librelane_design/config.json
-
       - name: Upload LibreLane results
         if: always()
         uses: actions/upload-artifact@v4
