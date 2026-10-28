@@ -1,0 +1,4 @@
+===== F08 TEST START =====
+VCD info: dumpfile f08_wave.vcd opened for output.
+FATAL: 05_VERIFICATION/testbench/f08_tb.sv:74: TC1 FAIL: state=1 coil=0001
+       Time: 46000  Scope: f08_tb
